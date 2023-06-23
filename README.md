@@ -1,3 +1,5 @@
+# Project start
+
 ## Brand new install
 ```bash
 npx create-next-app@latest
@@ -35,6 +37,19 @@ Edit `package.json` and edit
 },
 ```
 
+## Download repo
+```bash
+git remote add origin giturl
+git branch -M main
+git pull
+npm i
+```
+
+
+
+
+
+# Next.js welcome
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
