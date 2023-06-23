@@ -1,3 +1,41 @@
+## Brand new install
+```bash
+npx create-next-app@latest
+# move 'my_app' contents to root /
+npm i fastify
+npm i @fastify/nextjs next react react-dom
+npm uninstall next
+npm i next@12
+npm i mysql2
+```
+
+Create file `server.js`, with contents
+```js
+const fastify = require('fastify')()
+
+fastify
+  .register(require('@fastify/nextjs'))
+  .after(() => {
+    fastify.next('/')
+  })
+
+fastify.listen({port:3000}, err => {
+  if (err) throw err
+  console.log('Server listening on http://localhost:3000')
+})
+```
+
+Edit `package.json` and edit
+```json
+"scripts": {
+  "dev": "node server.js",
+  "build": "next build",
+  "start": "next start",
+  "lint": "next lint"
+},
+```
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
