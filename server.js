@@ -4,6 +4,7 @@ fastify
   .register(require('@fastify/nextjs'))
   .after(() => {
     fastify.next('/')
+    fastify.next('/quill')
   })
 
 fastify.listen({port:3000}, err => {

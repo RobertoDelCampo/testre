@@ -6,17 +6,22 @@
     "dev": "node server.js",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "db:migrate": "node -r dotenv/config node_modules/sequelize db:migrate",
+    "db:seed": "node -r dotenv/config node_modules/sequelize db:seed:all",
+    "db:undo": "node -r dotenv/config node_modules/sequelize db:migrate:undo:all"
   },
   "dependencies": {
     "@fastify/nextjs": "^10.0.0",
     "fastify": "^4.18.0",
-    "mysql2": "^3.4.0",
+    "mysql2": "^3.4.2",
     "next": "^12.3.4",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "sequelize": "^6.32.1"
   },
   "devDependencies": {
+    "dotenv": "^16.3.1",
     "eslint": "8.43.0",
     "eslint-config-next": "13.4.7"
   }
