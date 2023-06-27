@@ -1,3 +1,51 @@
+# DB Info
+
+## Permissions & Groups
+```
+Groups
+
+user
+support
+sales
+warehouse
+designer
+legal
+dev
+
+
+
+
+permissions
+
+support:
+	support.users_read
+	support.access
+		Acceder al panel de soporte
+	support.ticket_read
+		Acceso a la lectura de tickets
+	support.ticket_follow
+		Acceso a la resolucion de tickets
+sales:
+	support.*
+	sales.orders_access
+		Acceso al panel de ordenes
+	sales.orders_edit
+		Acceso al reajuste de las ordenes
+	sales.orders_read
+		Lectura de las ordenes 
+	sales.coupons_read
+	sales.coupons_edit
+	sales.coupons_create
+	
+	warehouse.tracking_read
+warehouse:
+	support.*
+	warehouse.tracking_read
+	warehouse.tracking_edit
+dev:
+	*
+```
+
 # Project start
 
 ## Brand new install
@@ -8,7 +56,8 @@ npm i fastify
 npm i @fastify/nextjs next react react-dom
 npm uninstall next
 npm i next@12
-npm i mysql2
+npm i sequelize mysql2
+sequelize init
 ```
 
 Create file `server.js`, with contents
