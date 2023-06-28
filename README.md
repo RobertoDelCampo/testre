@@ -57,6 +57,7 @@ npm i @fastify/nextjs next react react-dom
 npm uninstall next
 npm i next@12
 npm i sequelize mysql2
+npm i -g sequelize-cli
 sequelize init
 ```
 
