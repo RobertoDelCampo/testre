@@ -14,16 +14,20 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Ip_Address.init({
-    id_ip: {
+    id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
     },
-    name_ip: {
+    uid: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    ip: {
       type: DataTypes.STRING,
       allowNull: false
-    }
+    },
   }, {
     sequelize,
     modelName: 'Ip_Address',

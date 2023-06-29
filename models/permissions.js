@@ -14,13 +14,13 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Permissions.init({
-    id_permission: {
+    id: {
       type:DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
     },
-    name_permission: {
+    key: {
       type:DataTypes.STRING,
       allowNull: false
     },

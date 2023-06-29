@@ -14,13 +14,17 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Groups.init({
-    id_group: {
+    id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
     },
-    name_group: {
+    group: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    permissions: {
       type: DataTypes.STRING,
       allowNull: false
     }
