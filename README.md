@@ -1,30 +1,41 @@
 # DB Info
 
 ## Permissions & Groups
-```
+
 Groups
 
-user
-support
-sales
-warehouse
-designer
-legal
-dev
+Group Inheritance
 
+- banned --> Fuera de la tienda, prohibido acceso
+	- user --> Usuario general solo con privilegios de compra
+		- support --> Atencion a cliente, redireccion con otros departamentos
+			-[
+				- marketing --> Temas de diseno, creacion/cambio de ofertas publicitarias (coneccion con sales) 
+				- sales --> contabilidad, descuentos, ofertas
+				- warehouse --> Almacen, registro de stok, contacto con proveedores, dar de alta prodictos, acceso a la base de datos
+			]-
+			- legal --> Actualizacion de terminos de uso y condiciones, terminos de privacidad
+			- dev --> Acceso total
+				- manager --> Acceso total
 
 
 
 permissions
 
+
+banned:
+	!*
+		Revocacion de todos los permisos existentes
 support:
 	support.users_read
-	support.access
-		Acceder al panel de soporte
-	support.ticket_read
-		Acceso a la lectura de tickets
-	support.ticket_follow
-		Acceso a la resolucion de tickets
+	support.general_access
+		Acceder al panel de soporte general (que puedan ver los tickets de todos los departamentos)
+	support.ticket_read_#
+		Acceso a la lectura de tickets (acceso a leer los datos de los tickets de su departamento por ID)
+	support.ticket_resolution_#
+		Acceso a la resolucion de tickets (acceso a interactuar con el cliente en el ticket de su departamento por ID)
+	support.user_change
+		Cambiar informacion de un usuario
 sales:
 	support.*
 	sales.orders_access
@@ -34,17 +45,21 @@ sales:
 	sales.orders_read
 		Lectura de las ordenes 
 	sales.coupons_read
+
 	sales.coupons_edit
+
 	sales.coupons_create
 	
 	warehouse.tracking_read
 warehouse:
 	support.*
+
 	warehouse.tracking_read
+
 	warehouse.tracking_edit
 dev:
 	*
-```
+
 
 # Project start
 
