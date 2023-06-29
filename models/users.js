@@ -28,6 +28,14 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
+    group: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    permissions: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     password: {
       type: DataTypes.STRING,
       allowNull: false
@@ -37,6 +45,10 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     first_ip: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    last_ip: {
       type: DataTypes.STRING,
       allowNull: false
     },
