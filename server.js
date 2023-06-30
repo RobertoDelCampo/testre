@@ -5,6 +5,7 @@ fastify
   .after(() => {
     fastify.next('/')
     fastify.next('/quill')
+    fastify.next('/api/test')
   })
 
 fastify.listen({port:3000}, err => {
