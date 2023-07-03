@@ -6,6 +6,7 @@ const users = [
 export default function handler(req, res) {
   const { method } = req;
   const { id } = req.query; // Obtén el parámetro de ID de la URL
+  res.status(200).json({error: `Query: ${req.query}`})
 
   switch (method) {
     case 'GET': 
