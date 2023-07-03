@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       autoIncrement:true
     },
-    username: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -40,18 +40,18 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    creation_date: {
+    createdAt: {
+      type: DataTypes.DATE,
+      allowNull: false
+    },
+    updatedAt: {
       type: DataTypes.DATE,
       allowNull: false
     },
     first_ip: {
       type: DataTypes.STRING,
       allowNull: false
-    },
-    last_ip: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
+    }
   }, {
     sequelize,
     modelName: 'Users',

@@ -8,13 +8,18 @@ const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../config/config.json')[env];
 const db = {};
+const modelsDirectory = path.resolve(__dirname, '../models');
 
 let sequelize;
 sequelize = new Sequelize(config.database, config.username, config.password, config);
 
+console.log(`Dirname: ${__dirname}`)
+
+const Users = require('./users')(sequelize, Sequelize.DataTypes);
+db[Users.name] = Users;
 
 fs
-  .readdirSync(__dirname)
+  .readdirSync(modelsDirectory)
   .filter(file => {
     return (
       file.indexOf('.') !== 0 &&
@@ -24,7 +29,8 @@ fs
     );
   })
   .forEach(file => {
-    const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
+    const model = require(path.join(modelsDirectory, file))(sequelize, Sequelize.DataTypes);
+    console.log(`Loading model: ${model.name}`);
     db[model.name] = model;
   });
 
@@ -36,5 +42,7 @@ Object.keys(db).forEach(modelName => {
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
+
+console.log("Exporting models:", Object.keys(db));
 
 module.exports = db;

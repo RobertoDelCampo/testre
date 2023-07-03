@@ -14,7 +14,7 @@ permissions
 import db from '../../models/index'; // Ajusta la ruta según la ubicación real de models/index.js
 const Users = db.Users;
 
-export default function handler(req, res) {
+export default async function handler(req, res) {
   const { method } = req;
   const { id } = req.query; // Obtén el parámetro de ID de la URL
 
