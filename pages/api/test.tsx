@@ -8,7 +8,7 @@ export default function handler(req, res) {
   const { id } = req.query; // Obtén el parámetro de ID de la URL
 
   switch (method) {
-    case 'GET':
+    case 'GET': 
       // Manejar solicitud GET para obtener todos los usuarios o uno específico
       if (id) {
         const user = users.find((user) => user.id === parseInt(id));
