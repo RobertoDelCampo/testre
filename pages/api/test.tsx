@@ -11,8 +11,8 @@ group
 permissions
 */
 
-const {Sequelize, DataTypes } = require('sequelize')
-const sequelize = new Sequelize('mysql::memory:');
+import db from '../../models/index'; // Ajusta la ruta según la ubicación real de models/index.js
+const Users = db.Users;
 
 export default function handler(req, res) {
   const { method } = req;
@@ -20,7 +20,8 @@ export default function handler(req, res) {
 
   switch (method) {
     case 'GET': 
-      res.status(200).json(sequelize.models);
+      const users = Users.findAll()
+      res.status(200).json(users);
       /*
       // Manejar solicitud GET para obtener todos los usuarios o uno específico
       if (id) {
